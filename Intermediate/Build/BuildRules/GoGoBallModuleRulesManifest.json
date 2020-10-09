@@ -1,0 +1,8 @@
+{
+	"SourceFiles": [
+		"F:\\UnrealProjects\\GoGoBall\\Source\\GoGoBall\\GoGoBall.Build.cs",
+		"F:\\UnrealProjects\\GoGoBall\\Source\\GoGoBall.Target.cs",
+		"F:\\UnrealProjects\\GoGoBall\\Source\\GoGoBallEditor.Target.cs"
+	],
+	"EngineVersion": "4.25.3"
+}

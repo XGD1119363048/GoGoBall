@@ -1,0 +1,7 @@
+F:\UnrealProjects\GoGoBall\Intermediate\Build\Win64\UE4Editor\Development\GoGoBall\Definitions.GoGoBall.h
+F:\UnrealProjects\GoGoBall\Source\GoGoBall\Player\SpherePawnBase.h
+F:\UnrealProjects\GoGoBall\Intermediate\Build\Win64\UE4Editor\Inc\GoGoBall\SpherePawnBase.generated.h
+F:\UE4\UE_4.25\Engine\Source\Runtime\Engine\Classes\GameFramework/SpringArmComponent.h
+F:\UE4\UE_4.25\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\SpringArmComponent.generated.h
+F:\UE4\UE_4.25\Engine\Source\Runtime\Engine\Classes\Camera/CameraComponent.h
+F:\UE4\UE_4.25\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\CameraComponent.generated.h

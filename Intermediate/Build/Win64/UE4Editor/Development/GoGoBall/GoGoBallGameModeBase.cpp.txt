@@ -1,0 +1,9 @@
+F:\UnrealProjects\GoGoBall\Intermediate\Build\Win64\UE4Editor\Development\GoGoBall\Definitions.GoGoBall.h
+F:\UnrealProjects\GoGoBall\Source\GoGoBall\GameMode\GoGoBallGameModeBase.h
+F:\UE4\UE_4.25\Engine\Source\Runtime\Engine\Classes\GameFramework/GameModeBase.h
+F:\UE4\UE_4.25\Engine\Source\Runtime\Engine\Classes\Engine/ServerStatReplicator.h
+F:\UE4\UE_4.25\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\ServerStatReplicator.generated.h
+F:\UE4\UE_4.25\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\GameModeBase.generated.h
+F:\UnrealProjects\GoGoBall\Intermediate\Build\Win64\UE4Editor\Inc\GoGoBall\GoGoBallGameModeBase.generated.h
+F:\UnrealProjects\GoGoBall\Source\GoGoBall\GameMode\../Player/SpherePawnBase.h
+F:\UnrealProjects\GoGoBall\Intermediate\Build\Win64\UE4Editor\Inc\GoGoBall\SpherePawnBase.generated.h

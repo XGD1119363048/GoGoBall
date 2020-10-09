@@ -1,0 +1,14 @@
+{
+	"Targets": [
+		{
+			"Name": "GoGoBall",
+			"Path": "F:\\UnrealProjects\\GoGoBall\\Source\\GoGoBall.Target.cs",
+			"Type": "Game"
+		},
+		{
+			"Name": "GoGoBallEditor",
+			"Path": "F:\\UnrealProjects\\GoGoBall\\Source\\GoGoBallEditor.Target.cs",
+			"Type": "Editor"
+		}
+	]
+}

@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <None Include="..\..\GoGoBall.uproject" />
+    <Filter Include="Source">
+      <UniqueIdentifier>{83BF6547-D37C-4D78-96BF-D6F92E6A8918}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\GoGoBall.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <None Include="..\..\Source\GoGoBallEditor.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <Filter Include="Config">
+      <UniqueIdentifier>{F836EB49-459C-44EB-B8D6-81D88602DE6B}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Config\DefaultEditor.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEngine.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultGame.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultInput.ini">
+      <Filter>Config</Filter>
+    </None>
+    <Filter Include="Source\GoGoBall">
+      <UniqueIdentifier>{CBCCADE4-F106-4446-B24A-403663F89066}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\GoGoBall\GoGoBall.Build.cs">
+      <Filter>Source\GoGoBall</Filter>
+    </None>
+    <ClCompile Include="..\..\Source\GoGoBall\GoGoBall.cpp">
+      <Filter>Source\GoGoBall</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GoGoBall\GoGoBall.h">
+      <Filter>Source\GoGoBall</Filter>
+    </ClInclude>
+    <Filter Include="Source\GoGoBall\GameMode">
+      <UniqueIdentifier>{C0D694DB-4B93-4C42-A9B6-9FC9D3E61FEB}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\GoGoBall\GameMode\GoGoBallGameModeBase.cpp">
+      <Filter>Source\GoGoBall\GameMode</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GoGoBall\GameMode\GoGoBallGameModeBase.h">
+      <Filter>Source\GoGoBall\GameMode</Filter>
+    </ClInclude>
+    <Filter Include="Source\GoGoBall\HitBox">
+      <UniqueIdentifier>{11826ECB-AB78-4CB3-B61F-441F891F65F9}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\GoGoBall\HitBox\DieSphere.cpp">
+      <Filter>Source\GoGoBall\HitBox</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GoGoBall\HitBox\DieSphere.h">
+      <Filter>Source\GoGoBall\HitBox</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\GoGoBall\HitBox\EndLocation.cpp">
+      <Filter>Source\GoGoBall\HitBox</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GoGoBall\HitBox\EndLocation.h">
+      <Filter>Source\GoGoBall\HitBox</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\GoGoBall\HitBox\GateDoor.cpp">
+      <Filter>Source\GoGoBall\HitBox</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GoGoBall\HitBox\GateDoor.h">
+      <Filter>Source\GoGoBall\HitBox</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\GoGoBall\HitBox\HitBoxBase.cpp">
+      <Filter>Source\GoGoBall\HitBox</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GoGoBall\HitBox\HitBoxBase.h">
+      <Filter>Source\GoGoBall\HitBox</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\GoGoBall\HitBox\JumpLocation.cpp">
+      <Filter>Source\GoGoBall\HitBox</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GoGoBall\HitBox\JumpLocation.h">
+      <Filter>Source\GoGoBall\HitBox</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\GoGoBall\HitBox\SaveLocation.cpp">
+      <Filter>Source\GoGoBall\HitBox</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GoGoBall\HitBox\SaveLocation.h">
+      <Filter>Source\GoGoBall\HitBox</Filter>
+    </ClInclude>
+    <Filter Include="Source\GoGoBall\Player">
+      <UniqueIdentifier>{EB27E418-3EFB-4BBE-9399-D348BBBEA646}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\GoGoBall\Player\SpherePawnBase.cpp">
+      <Filter>Source\GoGoBall\Player</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\GoGoBall\Player\SpherePawnBase.h">
+      <Filter>Source\GoGoBall\Player</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
