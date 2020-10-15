@@ -24,6 +24,9 @@ public:
 		class USceneComponent* SceneComp;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		class UStaticMeshComponent* StaticMeshComp;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		class UParticleSystemComponent* ParticleSystemComp;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "UpSpeed")

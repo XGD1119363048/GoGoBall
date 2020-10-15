@@ -4,6 +4,7 @@
 #include "JumpLocation.h"
 #include "Particles/ParticleSystemComponent.h"
 #include "Components/SceneComponent.h"
+#include "Components/StaticMeshComponent.h"
 #include "Components/BoxComponent.h"
 #include "../Player/SpherePawnBase.h"
 
@@ -11,6 +12,9 @@ AJumpLocation::AJumpLocation()
 {
 	SceneComp = CreateDefaultSubobject<USceneComponent>(TEXT("RootComp"));
 	RootComponent = SceneComp;
+
+	StaticMeshComp = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("StaticMeshComp"));
+	StaticMeshComp->SetupAttachment(SceneComp);
 
 	ParticleSystemComp = CreateDefaultSubobject<UParticleSystemComponent>(TEXT("ParticleSystemComp"));
 	BoxComp->SetupAttachment(SceneComp);

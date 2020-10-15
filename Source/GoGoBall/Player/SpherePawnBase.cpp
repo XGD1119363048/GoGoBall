@@ -4,6 +4,7 @@
 #include "SpherePawnBase.h"
 #include "Components/StaticMeshComponent.h"
 #include "GameFramework/SpringArmComponent.h"
+#include "Particles/ParticleSystemComponent.h"
 #include "Camera/CameraComponent.h"
 //#include "Engine.h"
 
@@ -24,12 +25,20 @@ ASpherePawnBase::ASpherePawnBase()
 	SpringArmComp = CreateDefaultSubobject<USpringArmComponent>(TEXT("SpringArmComp"));
 	SpringArmComp->SetupAttachment(SphereMeshComp);
 	SpringArmComp->SetRelativeLocation(FVector(0, 0, 50.f));
+	SpringArmComp->SetRelativeRotation(FRotator(-20.f, 0, 0));
 	SpringArmComp->TargetArmLength = 700.f;
 
 	CameraComp = CreateDefaultSubobject<UCameraComponent>(TEXT("CameraComp"));
 	CameraComp->SetupAttachment(SpringArmComp);
 
+	ParticleSystemComp = CreateDefaultSubobject<UParticleSystemComponent>(TEXT("ParticleSystemComp"));
+	ParticleSystemComp->SetupAttachment(SphereMeshComp);
+	ParticleSystemComp->SetRelativeLocation(FVector(0, 0, 50.f));
+	ParticleSystemComp->bAutoActivate = false;
+
 	UserPitch = SpringArmComp->GetRelativeRotation().Pitch;
+
+	CanDestroyObject = false;
 
 }
 
@@ -59,6 +68,9 @@ void ASpherePawnBase::Tick(float DeltaTime)
 void ASpherePawnBase::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
+
+	PlayerInputComponent->BindAction("SpeedUp", IE_Pressed, this, &ASpherePawnBase::SpeedUp);
+	PlayerInputComponent->BindAction("SpeedUp", IE_Released, this, &ASpherePawnBase::SpeedDown);
 
 	PlayerInputComponent->BindAxis("MoveForward", this, &ASpherePawnBase::MoveForward);
 	PlayerInputComponent->BindAxis("MoveRight", this, &ASpherePawnBase::MoveRight);
@@ -90,11 +102,15 @@ void ASpherePawnBase::LookUp(float AxisValue)
 void ASpherePawnBase::SpeedUp()
 {
 	SphereForce = SphereMaxForce;
+	CanDestroyObject = true;
+	ParticleSystemComp->ActivateSystem(true);//true?
 }
 
 void ASpherePawnBase::SpeedDown()
 {
 	SphereForce = SphereMinForce;
+	CanDestroyObject = false;
+	ParticleSystemComp->DeactivateSystem();
 }
 
 void ASpherePawnBase::ResetSpeed()

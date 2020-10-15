@@ -340,4 +340,5 @@ ASALocalRun/
 healthchecksdb
 
 # ignore modules
-Content/StarterContent/*
+Content/StarterContent/
+Content/AdvancedVillagePack/

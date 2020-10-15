@@ -17,6 +17,7 @@ void EmptyLinkFunctionForGeneratedCodeSpherePawnBase() {}
 	GOGOBALL_API UClass* Z_Construct_UClass_ASpherePawnBase();
 	ENGINE_API UClass* Z_Construct_UClass_APawn();
 	UPackage* Z_Construct_UPackage__Script_GoGoBall();
+	ENGINE_API UClass* Z_Construct_UClass_UParticleSystemComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UCameraComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_USpringArmComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UStaticMeshComponent_NoRegister();
@@ -228,6 +229,10 @@ void EmptyLinkFunctionForGeneratedCodeSpherePawnBase() {}
 		static void NewProp_IsInput_SetBit(void* Obj);
 		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_IsInput;
 #if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_ParticleSystemComp_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_ParticleSystemComp;
+#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_CameraComp_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_CameraComp;
@@ -273,6 +278,14 @@ void EmptyLinkFunctionForGeneratedCodeSpherePawnBase() {}
 	}
 	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_ASpherePawnBase_Statics::NewProp_IsInput = { "IsInput", nullptr, (EPropertyFlags)0x0010000000000005, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(ASpherePawnBase), &Z_Construct_UClass_ASpherePawnBase_Statics::NewProp_IsInput_SetBit, METADATA_PARAMS(Z_Construct_UClass_ASpherePawnBase_Statics::NewProp_IsInput_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ASpherePawnBase_Statics::NewProp_IsInput_MetaData)) };
 #if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ASpherePawnBase_Statics::NewProp_ParticleSystemComp_MetaData[] = {
+		{ "Category", "ParticleSystemComp" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Player/SpherePawnBase.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ASpherePawnBase_Statics::NewProp_ParticleSystemComp = { "ParticleSystemComp", nullptr, (EPropertyFlags)0x001000000008000d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ASpherePawnBase, ParticleSystemComp), Z_Construct_UClass_UParticleSystemComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ASpherePawnBase_Statics::NewProp_ParticleSystemComp_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ASpherePawnBase_Statics::NewProp_ParticleSystemComp_MetaData)) };
+#if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ASpherePawnBase_Statics::NewProp_CameraComp_MetaData[] = {
 		{ "Category", "CameraComp" },
 		{ "EditInline", "true" },
@@ -298,6 +311,7 @@ void EmptyLinkFunctionForGeneratedCodeSpherePawnBase() {}
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ASpherePawnBase_Statics::NewProp_SphereMeshComp = { "SphereMeshComp", nullptr, (EPropertyFlags)0x001000000008000d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ASpherePawnBase, SphereMeshComp), Z_Construct_UClass_UStaticMeshComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ASpherePawnBase_Statics::NewProp_SphereMeshComp_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ASpherePawnBase_Statics::NewProp_SphereMeshComp_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ASpherePawnBase_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASpherePawnBase_Statics::NewProp_IsInput,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASpherePawnBase_Statics::NewProp_ParticleSystemComp,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASpherePawnBase_Statics::NewProp_CameraComp,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASpherePawnBase_Statics::NewProp_SpringArmComp,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASpherePawnBase_Statics::NewProp_SphereMeshComp,
@@ -329,7 +343,7 @@ void EmptyLinkFunctionForGeneratedCodeSpherePawnBase() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ASpherePawnBase, 1929371469);
+	IMPLEMENT_CLASS(ASpherePawnBase, 224355408);
 	template<> GOGOBALL_API UClass* StaticClass<ASpherePawnBase>()
 	{
 		return ASpherePawnBase::StaticClass();

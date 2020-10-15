@@ -24,6 +24,9 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "CameraComp")
 		class UCameraComponent* CameraComp;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "ParticleSystemComp");
+		class UParticleSystemComponent* ParticleSystemComp;
+
 public:
 
 	FVector PlayerStartLocation;
@@ -37,6 +40,8 @@ public:
 	float SphereForce;
 	float SphereMinForce;
 	float SphereMaxForce;
+
+	bool CanDestroyObject;
 
 protected:
 	// Called when the game starts or when spawned

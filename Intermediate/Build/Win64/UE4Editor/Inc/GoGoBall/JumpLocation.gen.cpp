@@ -18,6 +18,7 @@ void EmptyLinkFunctionForGeneratedCodeJumpLocation() {}
 	GOGOBALL_API UClass* Z_Construct_UClass_AHitBoxBase();
 	UPackage* Z_Construct_UPackage__Script_GoGoBall();
 	ENGINE_API UClass* Z_Construct_UClass_UParticleSystemComponent_NoRegister();
+	ENGINE_API UClass* Z_Construct_UClass_UStaticMeshComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_USceneComponent_NoRegister();
 // End Cross Module References
 	void AJumpLocation::StaticRegisterNativesAJumpLocation()
@@ -41,6 +42,10 @@ void EmptyLinkFunctionForGeneratedCodeJumpLocation() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_ParticleSystemComp_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_ParticleSystemComp;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_StaticMeshComp_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_StaticMeshComp;
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_SceneComp_MetaData[];
 #endif
@@ -76,6 +81,14 @@ void EmptyLinkFunctionForGeneratedCodeJumpLocation() {}
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AJumpLocation_Statics::NewProp_ParticleSystemComp = { "ParticleSystemComp", nullptr, (EPropertyFlags)0x001000000008000d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AJumpLocation, ParticleSystemComp), Z_Construct_UClass_UParticleSystemComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AJumpLocation_Statics::NewProp_ParticleSystemComp_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AJumpLocation_Statics::NewProp_ParticleSystemComp_MetaData)) };
 #if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AJumpLocation_Statics::NewProp_StaticMeshComp_MetaData[] = {
+		{ "Category", "JumpLocation" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "HitBox/JumpLocation.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AJumpLocation_Statics::NewProp_StaticMeshComp = { "StaticMeshComp", nullptr, (EPropertyFlags)0x001000000008000d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(AJumpLocation, StaticMeshComp), Z_Construct_UClass_UStaticMeshComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AJumpLocation_Statics::NewProp_StaticMeshComp_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_AJumpLocation_Statics::NewProp_StaticMeshComp_MetaData)) };
+#if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AJumpLocation_Statics::NewProp_SceneComp_MetaData[] = {
 		{ "Category", "JumpLocation" },
 		{ "EditInline", "true" },
@@ -86,6 +99,7 @@ void EmptyLinkFunctionForGeneratedCodeJumpLocation() {}
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AJumpLocation_Statics::PropPointers[] = {
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AJumpLocation_Statics::NewProp_UpSpeed,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AJumpLocation_Statics::NewProp_ParticleSystemComp,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AJumpLocation_Statics::NewProp_StaticMeshComp,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AJumpLocation_Statics::NewProp_SceneComp,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AJumpLocation_Statics::StaticCppClassTypeInfo = {
@@ -115,7 +129,7 @@ void EmptyLinkFunctionForGeneratedCodeJumpLocation() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AJumpLocation, 359824305);
+	IMPLEMENT_CLASS(AJumpLocation, 339335319);
 	template<> GOGOBALL_API UClass* StaticClass<AJumpLocation>()
 	{
 		return AJumpLocation::StaticClass();

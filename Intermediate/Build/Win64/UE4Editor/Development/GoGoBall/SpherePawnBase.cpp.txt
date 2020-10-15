@@ -3,5 +3,12 @@ F:\UnrealProjects\GoGoBall\Source\GoGoBall\Player\SpherePawnBase.h
 F:\UnrealProjects\GoGoBall\Intermediate\Build\Win64\UE4Editor\Inc\GoGoBall\SpherePawnBase.generated.h
 F:\UE4\UE_4.25\Engine\Source\Runtime\Engine\Classes\GameFramework/SpringArmComponent.h
 F:\UE4\UE_4.25\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\SpringArmComponent.generated.h
+F:\UE4\UE_4.25\Engine\Source\Runtime\Engine\Classes\Particles/ParticleSystemComponent.h
+F:\UE4\UE_4.25\Engine\Source\Runtime\Engine\Classes\Particles/ParticleSystem.h
+F:\UE4\UE_4.25\Engine\Source\Runtime\Engine\Classes\Particles/ParticlePerfStats.h
+F:\UE4\UE_4.25\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\ParticleSystem.generated.h
+F:\UE4\UE_4.25\Engine\Source\Runtime\Engine\Classes\Particles/Emitter.h
+F:\UE4\UE_4.25\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\Emitter.generated.h
+F:\UE4\UE_4.25\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\ParticleSystemComponent.generated.h
 F:\UE4\UE_4.25\Engine\Source\Runtime\Engine\Classes\Camera/CameraComponent.h
 F:\UE4\UE_4.25\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\CameraComponent.generated.h
