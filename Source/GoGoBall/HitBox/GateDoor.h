@@ -29,6 +29,9 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "NextLevel")
 		FName NextLevelName;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "NextLevelText")
+		class UTextRenderComponent* TextRenderComp;
+
 public:
 
 	virtual void OnHitSphere(class ASpherePawnBase* SpherePawn) override;

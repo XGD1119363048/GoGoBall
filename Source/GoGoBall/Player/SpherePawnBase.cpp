@@ -76,6 +76,8 @@ void ASpherePawnBase::SetupPlayerInputComponent(UInputComponent* PlayerInputComp
 	PlayerInputComponent->BindAxis("MoveRight", this, &ASpherePawnBase::MoveRight);
 	PlayerInputComponent->BindAxis("LookUp", this, &ASpherePawnBase::LookUp);
 
+	PlayerInputComponent->BindAxis("CameraZoom", this, &ASpherePawnBase::CameraZoom);
+
 }
 
 void ASpherePawnBase::MoveForward(float AxisValue)
@@ -91,12 +93,15 @@ void ASpherePawnBase::MoveRight(float AxisValue)
 void ASpherePawnBase::LookUp(float AxisValue)
 {
 	UserPitch += AxisValue;
-	//clamp
-	if (UserPitch < -90.f)
-		UserPitch = -90.f;
-	if (UserPitch > -30.f)
-		UserPitch = -30.f;
-	SpringArmComp->SetRelativeRotation(FRotator(UserPitch, 0, 0));
+	float TempPitch = FMath::Clamp(UserPitch, -90.f, -15.f);
+	SpringArmComp->SetRelativeRotation(FRotator(TempPitch, 0, 0));
+}
+
+void ASpherePawnBase::CameraZoom(float AxisValue)
+{
+	SpringArmComp->TargetArmLength += AxisValue * 10;
+	float TempTargetLength = FMath::Clamp(SpringArmComp->TargetArmLength, 300.f, 800.f);
+	SpringArmComp->TargetArmLength = TempTargetLength;
 }
 
 void ASpherePawnBase::SpeedUp()

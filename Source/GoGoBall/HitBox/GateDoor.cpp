@@ -4,6 +4,7 @@
 #include "GateDoor.h"
 #include "Components/StaticMeshComponent.h"
 #include "Particles/ParticleSystemComponent.h"
+#include "Components/TextRenderComponent.h"
 #include "Components/BoxComponent.h"
 #include "../Player/SpherePawnBase.h"
 #include "Kismet/GameplayStatics.h"
@@ -15,6 +16,9 @@ AGateDoor::AGateDoor()
 
 	ParticleSystemComp = CreateDefaultSubobject<UParticleSystemComponent>(TEXT("ParticleSystemComp"));
 	ParticleSystemComp->SetupAttachment(StaticMeshComp);
+
+	TextRenderComp = CreateDefaultSubobject<UTextRenderComponent>(TEXT("TextRenderComp"));
+	TextRenderComp->SetupAttachment(StaticMeshComp);
 
 	BoxComp->SetupAttachment(StaticMeshComp);
 

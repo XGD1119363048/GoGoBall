@@ -36,6 +36,14 @@ void EmptyLinkFunctionForGeneratedCodeSpherePawnBase() {}
 		P_THIS->SpeedUp();
 		P_NATIVE_END;
 	}
+	DEFINE_FUNCTION(ASpherePawnBase::execCameraZoom)
+	{
+		P_GET_PROPERTY(FFloatProperty,Z_Param_AxisValue);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->CameraZoom(Z_Param_AxisValue);
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(ASpherePawnBase::execLookUp)
 	{
 		P_GET_PROPERTY(FFloatProperty,Z_Param_AxisValue);
@@ -64,6 +72,7 @@ void EmptyLinkFunctionForGeneratedCodeSpherePawnBase() {}
 	{
 		UClass* Class = ASpherePawnBase::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
+			{ "CameraZoom", &ASpherePawnBase::execCameraZoom },
 			{ "LookUp", &ASpherePawnBase::execLookUp },
 			{ "MoveForward", &ASpherePawnBase::execMoveForward },
 			{ "MoveRight", &ASpherePawnBase::execMoveRight },
@@ -71,6 +80,38 @@ void EmptyLinkFunctionForGeneratedCodeSpherePawnBase() {}
 			{ "SpeedUp", &ASpherePawnBase::execSpeedUp },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
+	}
+	struct Z_Construct_UFunction_ASpherePawnBase_CameraZoom_Statics
+	{
+		struct SpherePawnBase_eventCameraZoom_Parms
+		{
+			float AxisValue;
+		};
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_AxisValue;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UFunction_ASpherePawnBase_CameraZoom_Statics::NewProp_AxisValue = { "AxisValue", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(SpherePawnBase_eventCameraZoom_Parms, AxisValue), METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ASpherePawnBase_CameraZoom_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ASpherePawnBase_CameraZoom_Statics::NewProp_AxisValue,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ASpherePawnBase_CameraZoom_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Player/SpherePawnBase.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ASpherePawnBase_CameraZoom_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ASpherePawnBase, nullptr, "CameraZoom", nullptr, nullptr, sizeof(SpherePawnBase_eventCameraZoom_Parms), Z_Construct_UFunction_ASpherePawnBase_CameraZoom_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ASpherePawnBase_CameraZoom_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ASpherePawnBase_CameraZoom_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ASpherePawnBase_CameraZoom_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ASpherePawnBase_CameraZoom()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ASpherePawnBase_CameraZoom_Statics::FuncParams);
+		}
+		return ReturnFunction;
 	}
 	struct Z_Construct_UFunction_ASpherePawnBase_LookUp_Statics
 	{
@@ -253,6 +294,7 @@ void EmptyLinkFunctionForGeneratedCodeSpherePawnBase() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_GoGoBall,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_ASpherePawnBase_Statics::FuncInfo[] = {
+		{ &Z_Construct_UFunction_ASpherePawnBase_CameraZoom, "CameraZoom" }, // 3914332607
 		{ &Z_Construct_UFunction_ASpherePawnBase_LookUp, "LookUp" }, // 3609141839
 		{ &Z_Construct_UFunction_ASpherePawnBase_MoveForward, "MoveForward" }, // 2193373860
 		{ &Z_Construct_UFunction_ASpherePawnBase_MoveRight, "MoveRight" }, // 772620033
@@ -343,7 +385,7 @@ void EmptyLinkFunctionForGeneratedCodeSpherePawnBase() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ASpherePawnBase, 224355408);
+	IMPLEMENT_CLASS(ASpherePawnBase, 1495707343);
 	template<> GOGOBALL_API UClass* StaticClass<ASpherePawnBase>()
 	{
 		return ASpherePawnBase::StaticClass();

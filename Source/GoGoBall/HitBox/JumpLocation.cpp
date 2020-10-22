@@ -4,7 +4,6 @@
 #include "JumpLocation.h"
 #include "Particles/ParticleSystemComponent.h"
 #include "Components/SceneComponent.h"
-#include "Components/StaticMeshComponent.h"
 #include "Components/BoxComponent.h"
 #include "../Player/SpherePawnBase.h"
 
@@ -13,12 +12,11 @@ AJumpLocation::AJumpLocation()
 	SceneComp = CreateDefaultSubobject<USceneComponent>(TEXT("RootComp"));
 	RootComponent = SceneComp;
 
-	StaticMeshComp = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("StaticMeshComp"));
-	StaticMeshComp->SetupAttachment(SceneComp);
-
 	ParticleSystemComp = CreateDefaultSubobject<UParticleSystemComponent>(TEXT("ParticleSystemComp"));
 	BoxComp->SetupAttachment(SceneComp);
 	ParticleSystemComp->SetupAttachment(SceneComp);
+
+	ParticleSystemComp->bAutoActivate = false;
 
 	UpSpeed = 800.f;
 }
@@ -29,5 +27,7 @@ void AJumpLocation::OnHitSphere(class ASpherePawnBase* SpherePawn)
 	FVector NowVelocity = SpherePawn->SphereMeshComp->GetPhysicsLinearVelocity();
 	NowVelocity += UpSpeedVector;
 	SpherePawn->SphereMeshComp->SetPhysicsLinearVelocity(NowVelocity);
+
+	ParticleSystemComp->ActivateSystem(true);
 }
 

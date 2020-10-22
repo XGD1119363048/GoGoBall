@@ -64,6 +64,9 @@ public:
 		void LookUp(float AxisValue);
 
 	UFUNCTION(BlueprintCallable)
+		void CameraZoom(float AxisValue);
+
+	UFUNCTION(BlueprintCallable)
 		void SpeedUp();
 
 	UFUNCTION(BlueprintCallable)

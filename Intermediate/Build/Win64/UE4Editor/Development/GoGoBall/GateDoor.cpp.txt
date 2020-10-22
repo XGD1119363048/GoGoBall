@@ -10,6 +10,8 @@ F:\UE4\UE_4.25\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\ParticleSyst
 F:\UE4\UE_4.25\Engine\Source\Runtime\Engine\Classes\Particles/Emitter.h
 F:\UE4\UE_4.25\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\Emitter.generated.h
 F:\UE4\UE_4.25\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\ParticleSystemComponent.generated.h
+F:\UE4\UE_4.25\Engine\Source\Runtime\Engine\Classes\Components/TextRenderComponent.h
+F:\UE4\UE_4.25\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\TextRenderComponent.generated.h
 F:\UE4\UE_4.25\Engine\Source\Runtime\Engine\Classes\Components/BoxComponent.h
 F:\UE4\UE_4.25\Engine\Source\Runtime\Engine\Classes\Components/ShapeComponent.h
 F:\UE4\UE_4.25\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\ShapeComponent.generated.h
