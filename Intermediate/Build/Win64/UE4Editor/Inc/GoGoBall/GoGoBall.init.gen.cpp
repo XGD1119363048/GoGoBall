@@ -21,7 +21,7 @@ void EmptyLinkFunctionForGeneratedCodeGoGoBall_init() {}
 				nullptr,
 				0,
 				PKG_CompiledIn | 0x00000000,
-				0x7835A9AA,
+				0x0EFC1F01,
 				0x1AB2A662,
 				METADATA_PARAMS(nullptr, 0)
 			};

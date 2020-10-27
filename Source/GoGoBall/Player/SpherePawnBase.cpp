@@ -6,6 +6,7 @@
 #include "GameFramework/SpringArmComponent.h"
 #include "Particles/ParticleSystemComponent.h"
 #include "Camera/CameraComponent.h"
+//#include "Components/SceneComponent.h"
 //#include "Engine.h"
 
 // Sets default values
@@ -18,8 +19,12 @@ ASpherePawnBase::ASpherePawnBase()
 	SphereMaxForce = 60000.f;
 	SphereForce = SphereMinForce;
 
+	//SceneComp = CreateDefaultSubobject<USceneComponent>(TEXT("SceneComp"));
+	//RootComponent = SceneComp;
+
 	SphereMeshComp = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("SphereMeshComp"));
 	RootComponent = SphereMeshComp;
+	//SphereMeshComp->SetupAttachment(RootComponent);
 	SphereMeshComp->SetSimulatePhysics(true);
 
 	SpringArmComp = CreateDefaultSubobject<USpringArmComponent>(TEXT("SpringArmComp"));
@@ -57,10 +62,14 @@ void ASpherePawnBase::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	if (IsInput && !BallForce.IsZero()) {
+	if (IsInput && (!BallForceForward.IsZero() || !BallForceRight.IsZero())) {
 		//GEngine->AddOnScreenDebugMessage(0, 1.f, FColor::Red, TEXT("test2"));
-		SphereMeshComp->AddForce(BallForce);
+		SphereMeshComp->AddForce(BallForceForward + BallForceRight);
 	}
+	//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, BallForce.ToString());
+	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, FString::SanitizeFloat(CameraComp->GetComponentRotation().Yaw));
+	//FRotator CameraRotation = GetWorld()->GetFirstPlayerController()->PlayerCameraManager->GetCameraRotation();
+	//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, SpringArmComp->GetRelativeRotation().ToString());
 
 }
 
@@ -75,6 +84,7 @@ void ASpherePawnBase::SetupPlayerInputComponent(UInputComponent* PlayerInputComp
 	PlayerInputComponent->BindAxis("MoveForward", this, &ASpherePawnBase::MoveForward);
 	PlayerInputComponent->BindAxis("MoveRight", this, &ASpherePawnBase::MoveRight);
 	PlayerInputComponent->BindAxis("LookUp", this, &ASpherePawnBase::LookUp);
+	PlayerInputComponent->BindAxis("Turn", this, &ASpherePawnBase::Turn);
 
 	PlayerInputComponent->BindAxis("CameraZoom", this, &ASpherePawnBase::CameraZoom);
 
@@ -82,19 +92,53 @@ void ASpherePawnBase::SetupPlayerInputComponent(UInputComponent* PlayerInputComp
 
 void ASpherePawnBase::MoveForward(float AxisValue)
 {
-	BallForce.X = SphereForce * AxisValue;
+	if (AxisValue != 0) {
+		const FRotator Rotation = CameraComp->GetComponentRotation();	
+		const FRotator YawRotation(0, Rotation.Yaw + 90.f - 90.f * AxisValue, 0);
+		const FVector ForwardDirection = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::X);
+		//BallForce.Y = FMath::Sin(CameraComp->GetComponentRotation().Yaw);
+		//BallForce.X = FMath::Cos(CameraComp->GetComponentRotation().Yaw);
+		//FMath::SinCos(&BallForce.Y, &BallForce.X, CameraComp->GetComponentRotation().Yaw);
+		//BallForce.X = SphereForce * AxisValue;
+		BallForceForward = ForwardDirection * SphereForce;
+		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, BallForceForward.ToString());
+	}
+	else
+		BallForceForward = FVector(0, 0, 0);
+	//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, BallForce.ToString());
 }
 
 void ASpherePawnBase::MoveRight(float AxisValue)
 {
-	BallForce.Y = SphereForce * AxisValue;
+	if (AxisValue != 0) {
+		const FRotator Rotation = CameraComp->GetComponentRotation();
+		const FRotator YawRotation(0, Rotation.Yaw + 90.f * AxisValue, 0);
+		const FVector RightDirection = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::X);
+		//BallForce.X = FMath::Sin(CameraComp->GetComponentRotation().Yaw);
+		//BallForce.Y = FMath::Cos(CameraComp->GetComponentRotation().Yaw);
+		//FMath::SinCos(BallForce.Y, BallForce.X, CameraComp->GetComponentRotation().Yaw);
+		//BallForce.Y = SphereForce * AxisValue;
+		//BallForce *= SphereForce * AxisValue;
+		BallForceRight = RightDirection * SphereForce;
+		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, BallForceRight.ToString());
+		//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Blue, BallForce.ToString());
+	}
+	else
+		BallForceRight = FVector(0, 0, 0);
+
 }
 
 void ASpherePawnBase::LookUp(float AxisValue)
 {
 	UserPitch += AxisValue;
-	float TempPitch = FMath::Clamp(UserPitch, -90.f, -15.f);
-	SpringArmComp->SetRelativeRotation(FRotator(TempPitch, 0, 0));
+	UserPitch = FMath::Clamp(UserPitch, -89.f, -15.f);
+	SpringArmComp->SetRelativeRotation(FRotator(UserPitch, UserYaw, 0));
+}
+
+void ASpherePawnBase::Turn(float AxisValue)
+{
+	UserYaw += AxisValue;
+	SpringArmComp->SetRelativeRotation(FRotator(UserPitch, UserYaw, 0));
 }
 
 void ASpherePawnBase::CameraZoom(float AxisValue)

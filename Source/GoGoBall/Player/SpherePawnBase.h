@@ -15,6 +15,9 @@ public:
 	// Sets default values for this pawn's properties
 	ASpherePawnBase();
 
+	//UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "SceneComp")
+		//class USceneComponent* SceneComp;
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "SphereMeshComp")
 		class UStaticMeshComponent* SphereMeshComp;
 
@@ -34,8 +37,10 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		bool IsInput;
 
-	FVector BallForce;
+	FVector BallForceForward;
+	FVector BallForceRight;
 	float UserPitch;
+	float UserYaw;
 
 	float SphereForce;
 	float SphereMinForce;
@@ -62,6 +67,9 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 		void LookUp(float AxisValue);
+
+	UFUNCTION(BlueprintCallable)
+		void Turn(float AxisValue);
 
 	UFUNCTION(BlueprintCallable)
 		void CameraZoom(float AxisValue);

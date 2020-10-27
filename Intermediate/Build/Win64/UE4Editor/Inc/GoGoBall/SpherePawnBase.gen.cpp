@@ -44,6 +44,14 @@ void EmptyLinkFunctionForGeneratedCodeSpherePawnBase() {}
 		P_THIS->CameraZoom(Z_Param_AxisValue);
 		P_NATIVE_END;
 	}
+	DEFINE_FUNCTION(ASpherePawnBase::execTurn)
+	{
+		P_GET_PROPERTY(FFloatProperty,Z_Param_AxisValue);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->Turn(Z_Param_AxisValue);
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(ASpherePawnBase::execLookUp)
 	{
 		P_GET_PROPERTY(FFloatProperty,Z_Param_AxisValue);
@@ -78,6 +86,7 @@ void EmptyLinkFunctionForGeneratedCodeSpherePawnBase() {}
 			{ "MoveRight", &ASpherePawnBase::execMoveRight },
 			{ "SpeedDown", &ASpherePawnBase::execSpeedDown },
 			{ "SpeedUp", &ASpherePawnBase::execSpeedUp },
+			{ "Turn", &ASpherePawnBase::execTurn },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 	}
@@ -253,6 +262,38 @@ void EmptyLinkFunctionForGeneratedCodeSpherePawnBase() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_ASpherePawnBase_Turn_Statics
+	{
+		struct SpherePawnBase_eventTurn_Parms
+		{
+			float AxisValue;
+		};
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_AxisValue;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UFunction_ASpherePawnBase_Turn_Statics::NewProp_AxisValue = { "AxisValue", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(SpherePawnBase_eventTurn_Parms, AxisValue), METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ASpherePawnBase_Turn_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ASpherePawnBase_Turn_Statics::NewProp_AxisValue,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ASpherePawnBase_Turn_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Player/SpherePawnBase.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ASpherePawnBase_Turn_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ASpherePawnBase, nullptr, "Turn", nullptr, nullptr, sizeof(SpherePawnBase_eventTurn_Parms), Z_Construct_UFunction_ASpherePawnBase_Turn_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ASpherePawnBase_Turn_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ASpherePawnBase_Turn_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ASpherePawnBase_Turn_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ASpherePawnBase_Turn()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ASpherePawnBase_Turn_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	UClass* Z_Construct_UClass_ASpherePawnBase_NoRegister()
 	{
 		return ASpherePawnBase::StaticClass();
@@ -300,6 +341,7 @@ void EmptyLinkFunctionForGeneratedCodeSpherePawnBase() {}
 		{ &Z_Construct_UFunction_ASpherePawnBase_MoveRight, "MoveRight" }, // 772620033
 		{ &Z_Construct_UFunction_ASpherePawnBase_SpeedDown, "SpeedDown" }, // 1400217089
 		{ &Z_Construct_UFunction_ASpherePawnBase_SpeedUp, "SpeedUp" }, // 2439040355
+		{ &Z_Construct_UFunction_ASpherePawnBase_Turn, "Turn" }, // 576546662
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ASpherePawnBase_Statics::Class_MetaDataParams[] = {
@@ -346,8 +388,10 @@ void EmptyLinkFunctionForGeneratedCodeSpherePawnBase() {}
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ASpherePawnBase_Statics::NewProp_SphereMeshComp_MetaData[] = {
 		{ "Category", "SphereMeshComp" },
+		{ "Comment", "//UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = \"SceneComp\")\n//class USceneComponent* SceneComp;\n" },
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "Player/SpherePawnBase.h" },
+		{ "ToolTip", "UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = \"SceneComp\")\nclass USceneComponent* SceneComp;" },
 	};
 #endif
 	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ASpherePawnBase_Statics::NewProp_SphereMeshComp = { "SphereMeshComp", nullptr, (EPropertyFlags)0x001000000008000d, UE4CodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, 1, STRUCT_OFFSET(ASpherePawnBase, SphereMeshComp), Z_Construct_UClass_UStaticMeshComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_ASpherePawnBase_Statics::NewProp_SphereMeshComp_MetaData, UE_ARRAY_COUNT(Z_Construct_UClass_ASpherePawnBase_Statics::NewProp_SphereMeshComp_MetaData)) };
@@ -385,7 +429,7 @@ void EmptyLinkFunctionForGeneratedCodeSpherePawnBase() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ASpherePawnBase, 1495707343);
+	IMPLEMENT_CLASS(ASpherePawnBase, 2579517110);
 	template<> GOGOBALL_API UClass* StaticClass<ASpherePawnBase>()
 	{
 		return ASpherePawnBase::StaticClass();
